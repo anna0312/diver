@@ -1,6 +1,7 @@
 #!/bin/bash
 
-curl "http://localhost:4741/dives/" \
+#curl "http://localhost:4741/dives/" \
+curl "https://afternoon-basin-31565.herokuapp.com/dives/" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \
