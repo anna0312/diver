@@ -23,10 +23,10 @@ require 'rails_helper'
 # removed from Rails core in Rails 5, but can be added back in via the
 # `rails-controller-testing` gem.
 
-RSpec.describe DipsController, type: :controller do
+RSpec.describe DivesController, type: :controller do
 
   # This should return the minimal set of attributes required to create a valid
-  # Dip. As you add validations to Dip, be sure to
+  # Dive. As you add validations to Dive, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
@@ -38,12 +38,12 @@ RSpec.describe DipsController, type: :controller do
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
-  # DipsController. Be sure to keep this updated too.
+  # DivesController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
   describe "GET #index" do
     it "returns a success response" do
-      dip = Dip.create! valid_attributes
+      dive = Dive.create! valid_attributes
       get :index, params: {}, session: valid_session
       expect(response).to be_success
     end
@@ -51,33 +51,33 @@ RSpec.describe DipsController, type: :controller do
 
   describe "GET #show" do
     it "returns a success response" do
-      dip = Dip.create! valid_attributes
-      get :show, params: {id: dip.to_param}, session: valid_session
+      dive = Dive.create! valid_attributes
+      get :show, params: {id: dive.to_param}, session: valid_session
       expect(response).to be_success
     end
   end
 
   describe "POST #create" do
     context "with valid params" do
-      it "creates a new Dip" do
+      it "creates a new Dive" do
         expect {
-          post :create, params: {dip: valid_attributes}, session: valid_session
-        }.to change(Dip, :count).by(1)
+          post :create, params: {dive: valid_attributes}, session: valid_session
+        }.to change(Dive, :count).by(1)
       end
 
-      it "renders a JSON response with the new dip" do
+      it "renders a JSON response with the new dive" do
 
-        post :create, params: {dip: valid_attributes}, session: valid_session
+        post :create, params: {dive: valid_attributes}, session: valid_session
         expect(response).to have_http_status(:created)
         expect(response.content_type).to eq('application/json')
-        expect(response.location).to eq(dip_url(Dip.last))
+        expect(response.location).to eq(dive_url(Dive.last))
       end
     end
 
     context "with invalid params" do
-      it "renders a JSON response with errors for the new dip" do
+      it "renders a JSON response with errors for the new dive" do
 
-        post :create, params: {dip: invalid_attributes}, session: valid_session
+        post :create, params: {dive: invalid_attributes}, session: valid_session
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to eq('application/json')
       end
@@ -90,27 +90,27 @@ RSpec.describe DipsController, type: :controller do
         skip("Add a hash of attributes valid for your model")
       }
 
-      it "updates the requested dip" do
-        dip = Dip.create! valid_attributes
-        put :update, params: {id: dip.to_param, dip: new_attributes}, session: valid_session
-        dip.reload
+      it "updates the requested dive" do
+        dive = Dive.create! valid_attributes
+        put :update, params: {id: dive.to_param, dive: new_attributes}, session: valid_session
+        dive.reload
         skip("Add assertions for updated state")
       end
 
-      it "renders a JSON response with the dip" do
-        dip = Dip.create! valid_attributes
+      it "renders a JSON response with the dive" do
+        dive = Dive.create! valid_attributes
 
-        put :update, params: {id: dip.to_param, dip: valid_attributes}, session: valid_session
+        put :update, params: {id: dive.to_param, dive: valid_attributes}, session: valid_session
         expect(response).to have_http_status(:ok)
         expect(response.content_type).to eq('application/json')
       end
     end
 
     context "with invalid params" do
-      it "renders a JSON response with errors for the dip" do
-        dip = Dip.create! valid_attributes
+      it "renders a JSON response with errors for the dive" do
+        dive = Dive.create! valid_attributes
 
-        put :update, params: {id: dip.to_param, dip: invalid_attributes}, session: valid_session
+        put :update, params: {id: dive.to_param, dive: invalid_attributes}, session: valid_session
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to eq('application/json')
       end
@@ -118,11 +118,11 @@ RSpec.describe DipsController, type: :controller do
   end
 
   describe "DELETE #destroy" do
-    it "destroys the requested dip" do
-      dip = Dip.create! valid_attributes
+    it "destroys the requested dive" do
+      dive = Dive.create! valid_attributes
       expect {
-        delete :destroy, params: {id: dip.to_param}, session: valid_session
-      }.to change(Dip, :count).by(-1)
+        delete :destroy, params: {id: dive.to_param}, session: valid_session
+      }.to change(Dive, :count).by(-1)
     end
   end
 

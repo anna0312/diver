@@ -1,6 +1,6 @@
-class CreateDips < ActiveRecord::Migration[5.1]
+class CreateDives < ActiveRecord::Migration[5.1]
   def change
-    create_table :dips do |t|
+    create_table :dives do |t|
       t.references :user, foreign_key: true
       t.string :location
       t.datetime :date
